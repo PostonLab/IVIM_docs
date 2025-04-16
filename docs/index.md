@@ -2,16 +2,16 @@
 Preprocessing diffusion MRI data and fitting IVIM models
 
 ## How to use locally:
-1. Clone the repository with `git clone` and `cd` into it. You should see a `run.py` file there.
+1. Clone the repository in Sherlock using `git clone https://github.com/PostonLab/IVIM_fit.git`. `cd` into the cloned repository, then `cd` into the ivim_fit directory within the repository. You should see a `run.py` file there.
 ```
 git clone https://github.com/PostonLab/IVIM_fit.git
 ```
 ```
 cd ivim_fit
 ```
-2. Install poetry using `pip install poetry`
+2. Install poetry version 1.8.5 using `python3 -m pip install poetry==1.8.5`
 ```
-pip install poetry
+python3 -m pip install poetry==1.8.5
 ```
 3. Install dependencies with `poetry install`, then use `poetry shell` to activate the virtual environment.
 ```
@@ -31,6 +31,17 @@ python ./run.py <path to bids data> <path to output> participant -c all --use-si
 6. When running for the first time, it will install all the singularity containers.
 
 ## How to run in Sherlock cluster at Stanford:
+1. Clone the repository in Sherlock using `git clone https://github.com/PostonLab/IVIM_fit.git`. `cd` into the cloned repository, then `cd` into the ivim_fit directory within the repository. You should see a `run.py` file there.
+```
+git clone https://github.com/PostonLab/IVIM_fit.git
+```
+```
+cd ivim_fit
+```
+(If you see the error: `fatal: unable to access 'https://github.com/PostonLab/IVIM_fit.git/': error setting certificate verify locations:  CAfile: /etc/ssl/certs/ca-certificates.crt CApath: none`, first manually point git to the CA bundle with `git config --global http.sslCAInfo /etc/ssl/certs/ca-bundle.crt`, then try `git clone` again.) 
+```
+git config --global http.sslCAInfo /etc/ssl/certs/ca-bundle.crt
+```
 1. Activate an interractive shell using `salloc`
 ```
 salloc
@@ -43,16 +54,16 @@ ml python/3.9.0
 ```
 python3.9 -m venv <name>
 ```
-4. Activate the environment `source py3/bin/activate`
+4. Activate the environment `source <venv_name>/bin/activate`
 ```
-source py3/bin/activate
+source <venv_name>/bin/activate
 ```
-6. Install dependencies with `poetry install`.(If poetry is not installed, install it using `python3 -m pip install poetry`. If needed install six package using `python3 -m pip install six`)
+6. Install dependencies with `poetry install`. [If poetry is not already installed, install it using `python3 -m pip install poetry==1.8.5`, then rerun `poetry install` (recommended), or `wget -O - https://install.python-poetry.org | python3 - --version 1.8.5`]. If needed install six package using `python3 -m pip install six`)
 ```
 poetry install
 ```
 ``` title="If poetry not already installed:"
-python3 -m pip install poetry
+python3 -m pip install poetry==1.8.5
 ```
 7. Deactivate the existing python environment using `deactivate`. Then use `poetry shell` to activate the new ivim virtual environment.
 ```
