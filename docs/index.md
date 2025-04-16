@@ -58,7 +58,7 @@ python3.9 -m venv <name>
 ```
 source <venv_name>/bin/activate
 ```
-6. Install dependencies with `poetry install`. [If poetry is not already installed, install it using `python3 -m pip install poetry==1.8.5`, then rerun `poetry install` (recommended), or `wget -O - https://install.python-poetry.org | python3 - --version 1.8.5`]. If needed install six package using `python3 -m pip install six`)
+6. Install dependencies with `poetry install`. [If poetry version 1.8.5 is not already installed, install it using `python3 -m pip install poetry==1.8.5`, then rerun `poetry install` (recommended), or `wget -O - https://install.python-poetry.org | python3 - --version 1.8.5`]. If needed install six package using `python3 -m pip install six`)
 ```
 poetry install
 ```
