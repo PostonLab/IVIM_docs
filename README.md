@@ -1,3 +1,3 @@
 # IVIM_docs
 
-https://kzsf.github.io/IVIM_docs/
+https://postonlab.github.io/IVIM_docs/
